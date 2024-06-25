@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###########
+# About: This script list the users who has the access for the GitHub Repo
+# Input: Export the username and token
+# Owner: XXXXXXX
+###########
+
+helper
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -10,6 +18,8 @@ TOKEN=$token
 # User and Repository information
 REPO_OWNER=$1
 REPO_NAME=$2
+
+
 
 # Function to make a GET request to the GitHub API
 function github_api_get {
@@ -36,6 +46,14 @@ function list_users_with_read_access {
     fi
 }
 
+# Function to help the users to give correct input 
+function helper {
+    expected_cmd_args=2
+    if [ $# -ne $expected_cmd_args ]
+        echo "please execute the script with required cmd args"
+        echo "asd"
+
+}
 # Main script
 
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."

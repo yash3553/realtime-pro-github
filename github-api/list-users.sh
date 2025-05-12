@@ -5,7 +5,7 @@ API_URL="https://api.github.com"
 
 # GitHub username and personal access token
 USERNAME=$username
-TOKEN=$token
+TOKEN=$GITHUB_TOKEN
 
 # User and Repository information
 REPO_OWNER=$1
@@ -17,7 +17,7 @@ function github_api_get {
     local url="${API_URL}/${endpoint}"
 
     # Send a GET request to the GitHub API with authentication
-    curl -s -u "${USERNAME}:${TOKEN}" "$url"
+    curl -s -u "${USERNAME}:${GITHUB_TOKEN}" "$url"
 }
 
 # Function to list users with read access to the repository
